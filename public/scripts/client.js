@@ -3,7 +3,7 @@ $(function() {
     getFavorites();
 
     $('#favPage').on('click', getFavorites);
-    $('.newFav').on('click', addFavorite); //function that targets a button to add a task
+    $('#newFav').on('click', '.addition', addFavorite); //function that targets a button to add a task
     // $('#toDoList').on('click', '.delete', deleteTask); //function that targets a button to delete a task
     // $("#toDoList").on("click", '#complete', updateTask); //function that targets a button to complete a task
 });
@@ -39,18 +39,33 @@ function displayFavorites(response) {
 
 function addFavorite(event) { //function to add a new task to the DOM
     event.preventDefault();
-    var favData = $(this).serialize(); //this will allow us to send appropriate data to the database for our request
+    var gifArray = {};
+    // var favData = $(this).serialize(); //this will allow us to send appropriate data to the database for our request
+    var favData = $(this).data('id');
 
-    
+    var textData = $('.input').val();
 
+    gifArray = {
+      gif_url: favData,
+      user_comment: textData
+    };
+
+    // $('gifArray').serializeArray();
+    console.log(gifArray);
+    // console.log($('gifArray'));
+
+    // $(this).on('click', function (newGiphy) {
+    // favData = newGiphy.gif_url + newGiphy.user_comment;
+    //   console.log(favData);
+    // });
 
     $.ajax({
         type: 'POST',
         url: '/favorite',
-        data: favData,
-        success: getFavorites
+        data: gifArray
+        // success: getFavorites
     });
-    $(this).find('input').val('');
+    // $(this).find('input').val('');
 }
 
 // function deleteTask(event) {  //function for deleteing a task
@@ -79,3 +94,10 @@ function addFavorite(event) { //function to add a new task to the DOM
 //         success: getTasks
 //     });
 // };
+// $('#newFav').on('submit',  addFavorite);
+//
+//   console.log(favData);
+//   $('.addition').on('click', function (newGiphy) {
+//     var favData = newGiphy.gif_url + newGiphy.user_comment;
+//     console.log(favData);
+//   });

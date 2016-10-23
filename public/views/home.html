@@ -1,10 +1,12 @@
 <h1>Home</h1>
+<form id=newFav>
 
 <div><button ng-click="home.getRandomGif()">Random</button></div>
-<div class="newFav"><img ng-src="{{home.randomGifURL}}"/><button ng-click="addField()">Favorite Gif</button><input type="text"  /></div><br />
+<div><img ng-src="{{home.randomGifURL}}"/><button data-id="{{home.randomGifURL}}" type="submit" class="addition">Favorite Gif</button><input class="input" type="text"  /></div><br />
 
 <input type="text" ng-model="home.search">
 <button ng-click="home.searchForGif(home.search)">Search</button>
 
 
-<div class="newFav" ng-repeat="movingPicture in home.searchedGifs"><img ng-src="{{movingPicture.images.fixed_height.url}}"/><br /><button>Favorite Gif</button><input type="text" /></div>
+<div ng-repeat="movingPicture in home.searchedGifs"><img ng-src="{{movingPicture.images.fixed_height.url}}"/><br /><button data-id="{{movingPicture.images.fixed_height.url}}" type="submit" class="addition">Favorite Gif</button><input class="input" type="text" /></div>
+</form>
