@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="giphyApp" ng-controller="HomeController as home">
+  <head>
+    <meta charset="utf-8">
+    <title>Weekend Challenge 5</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+    <script src="scripts/app.module.js" charset="utf-8"></script>
+    <script src="vendors/jquery.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+    <script src="scripts/app.config.js" charset="utf-8"></script>
+    <script src="scripts/main.controller.js" charset="utf-8"></script>
+    <script src="scripts/giphy.service.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style/styles.css" />
+    <base href="/" />
+  </head>
+  <body >
+<!-- ng-controller="HomeController as home" -->
+    <a href="/home">Home</a>
+    <button id="favPage"><a href="/favorites">Favorites</a></button>
+
+    <ng-view>
+    </ng-view>
+  </body>
+</html>

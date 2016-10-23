@@ -1,33 +1,10 @@
-<!DOCTYPE html>
-<html ng-app="giphyApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Weekend Challenge 5</title>
-    <script src="vendors/angular.min.js" charset="utf-8"></script>
-    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
-    <script src="scripts/app.module.js" charset="utf-8"></script>
-    <script src="scripts/app.config.js" charset="utf-8"></script>
-    <script src="scripts/main.controller.js" charset="utf-8"></script>
-    <script src="scripts/giphy.service.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="style/styles.css" />
-    <base href="/" />
-  </head>
-  <body>
-<!-- ng-controller="HomeController as home" -->
-    <a href="/home">Home</a>
-    <a href="/favorites">Favorites</a>
+<h1>Home</h1>
+
+<div><button ng-click="home.getRandomGif()">Random</button></div>
+<div class="newFav"><img ng-src="{{home.randomGifURL}}"/><button ng-click="addField()">Favorite Gif</button><input type="text"  /></div><br />
+
+<input type="text" ng-model="home.search">
+<button ng-click="home.searchForGif(home.search)">Search</button>
 
 
-  <button ng-click="home.getRandomGif()">Random</button>
-  <img ng-src="{{home.randomGifURL}}"/>
-
-  <input type="text" ng-model="home.search">
-  <button ng-click="home.searchForGif(home.search)">Search</button>
-
-  <img ng-repeat="movingPicture in home.searchedGifs" ng-src="{{movingPicture.images.fixed_height.url}}"/>
-
-    <ng-view>
-
-    </ng-view>
-  </body>
-</html>
+<div class="newFav" ng-repeat="movingPicture in home.searchedGifs"><img ng-src="{{movingPicture.images.fixed_height.url}}"/><br /><button>Favorite Gif</button><input type="text" /></div>

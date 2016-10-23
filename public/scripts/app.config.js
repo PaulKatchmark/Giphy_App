@@ -1,10 +1,11 @@
 angular.module('giphyApp')
        .config(function($routeProvider, $locationProvider) {
-         $routeProvider.when('/home', {
-           templateUrl: 'views/home.html',
-           controller: 'HomeController as home'
+         $routeProvider.when('/', {
+           templateUrl: '/views/home.html'
+         }).when('/home', {
+           templateUrl: '/views/home.html'
          }).when('/favorites', {
-           templateUrl: 'views/favorites.html'
+           templateUrl: '/views/favorites.html'
          });
 
          $locationProvider.html5Mode(true);
