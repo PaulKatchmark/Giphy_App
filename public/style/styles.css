@@ -1,0 +1,27 @@
+body {
+  text-align: center;
+  background-color: #F4B33E;
+}
+
+img {
+  width: 200px;
+  height: 125px;
+  margin: 10px;
+
+}
+ul {
+  list-style-type: none;
+}
+div {
+    display: inline-block;
+}
+a {
+  font-size: 12px;
+}
+button {
+  background-color: #4E3AA9;
+  color: #F4B33E;
+}
+h1, h2 {
+  color: #4E3AA9;
+}
