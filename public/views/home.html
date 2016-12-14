@@ -1,7 +1,7 @@
 <h1>Search for Fun Gifs</h1>
 <form id=newFav>
 
-<div><button ng-click="home.getRandomGif()">Random</button></div></br>
+<div><button ng-click="home.displayRandomGif()">Random</button></div></br>
 <div><img ng-src="{{home.randomGifURL}}"/></br><button data-id="{{home.randomGifURL}}" type="submit" class="addition">Favorite Gif</button><input class="input" type="text"  /></div></br></br>
 
 <input type="text" ng-model="home.search">

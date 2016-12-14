@@ -4,8 +4,8 @@ body {
 }
 
 img {
-  width: 200px;
-  height: 125px;
+  width: auto;
+  height: 300px;
   margin: 10px;
 
 }

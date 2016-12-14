@@ -1,3 +1,13 @@
 <h2>Favorite Gifs</h2>
 <div id="gifCounter"></div>
 <div id="favGifs"></div>
+<div ng-repeat="gif in faveCtrl.gifs">
+   <div>
+     <img ng-src="{{gif.url}}" alt="a gif from Giphy" />
+   </div>
+   <div>
+       <p>
+         {{gif.comment}}
+       </p>
+   </div>
+</div>
