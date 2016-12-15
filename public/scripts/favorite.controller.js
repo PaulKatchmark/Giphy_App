@@ -1,17 +1,17 @@
 app.controller('FavoriteController', FavoriteController);
 
 function FavoriteController(favorite) {
-  var self = this;
-  self.gifs = [];
+  var vm = this;
+  vm.gifs = [];
 
   console.log('FavoriteController loaded');
-
+  console.log('console log function ', favorite.favoritedGifs());
   if (favorite.favoritedGifs().length === 0) {
     favorite.getFavoritedGifs()
       .then(function () {
-        self.gifs = favorite.favoritedGifs();
+        vm.gifs = favorite.favoritedGifs();
       });
   } else {
-    self.gifs = favorite.favoritedGifs();
+    vm.gifs = favorite.favoritedGifs();
   }
 }

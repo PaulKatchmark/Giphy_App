@@ -2,7 +2,7 @@ app.controller('MainController', MainController);
 
 function MainController(giphy, favorite) {
   var vm = this;
-  vm.gifs = [];
+  vm.searchedGifs = [];
 
   console.log('MainController loaded');
 
@@ -13,11 +13,11 @@ function MainController(giphy, favorite) {
     getRandom();
   };
 
-  vm.searchAndDisplayGifs = function () {
-    giphy.searchGifByKeyword(vm.keywords)
+  vm.searchAndDisplayGifs = function (keywords) {
+    giphy.searchGifByKeyword(keywords)
       .then(function (response) {
-        console.log('array response', response);
-        vm.gifs = response.data.data;
+        console.log('array response', response.data.data);
+        vm.searchedGifs = response.data.data;
       },
 
     function (response) {
@@ -25,12 +25,14 @@ function MainController(giphy, favorite) {
     });
   };
 
-  vm.favoriteGif = function (url, comment) {
-    var gif = { url: url,
-                comment: comment,
+  vm.favoriteGif = function (note, url) {
+    console.log('inside favorite ', note);
+    console.log('url info ', url);
+    var gifInfo = { url: url,
+                comment: note
               };
-
-    favorite.addGifToFavorites(gif)
+    console.log('gitInfo ', gifInfo);
+    favorite.addGifToFavorites(gifInfo)
       .then(function () {
         // ngToast.create({
         //   content: 'Gif added!',
@@ -54,7 +56,7 @@ function MainController(giphy, favorite) {
         //   },
         // };
 
-        vm.gifs.unshift(response.data.data);
+        vm.searchedGifs.unshift(response.data.data);
       },
 
       function (response) {

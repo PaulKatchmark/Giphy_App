@@ -3,11 +3,11 @@
 <div id="favGifs"></div>
 <div ng-repeat="gif in faveCtrl.gifs">
    <div>
-     <img ng-src="{{gif.url}}" alt="a gif from Giphy" />
+     <img ng-src="{{gif.gif_url}}" alt="a gif from Giphy" />
    </div>
    <div>
        <p>
-         {{gif.comment}}
+         {{gif.user_comment}}
        </p>
    </div>
 </div>

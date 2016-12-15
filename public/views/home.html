@@ -2,11 +2,11 @@
 <form id=newFav>
 
 <div><button ng-click="home.displayRandomGif()">Random</button></div></br>
-<div><img ng-src="{{home.randomGifURL}}"/></br><button data-id="{{home.randomGifURL}}" type="submit" class="addition">Favorite Gif</button><input class="input" type="text"  /></div></br></br>
+<div><img ng-src="{{home.randomGifURL}}"/></br><button ng-click="home.favoriteGif(home.giphyMessage, home.randomGifURL)" data-id="{{home.randomGifURL}}" type="submit" class="addition">Favorite Gif</button><input class="input" type="text" ng-model="home.giphyMessage" /></div></br></br>
 
 <input type="text" ng-model="home.search">
-<button ng-click="home.searchForGif(home.search)">Search</button></br>
+<button ng-click="home.searchAndDisplayGifs(home.search)">Search</button></br>
 
 
-<div ng-repeat="movingPicture in home.searchedGifs"><img ng-src="{{movingPicture.images.fixed_height.url}}"/><br /><button data-id="{{movingPicture.images.fixed_height.url}}" type="submit" class="addition">Favorite Gif</button><input class="input" type="text" /></div>
+<div ng-repeat="gifs in home.searchedGifs"><img ng-src="{{gifs.images.downsized_medium.url}}"/><br /><button ng-click="home.favoriteGif(gifs.giphyNote, gifs.images.downsized_medium.url)" data-id="{{gifs.images.downsized_medium.url}}" type="submit" class="addition">Favorite Gif</button><input class="input" ng-model="gifs.giphyNote" type="text" /></div>
 </form>

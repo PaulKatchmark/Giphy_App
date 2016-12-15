@@ -29,6 +29,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
+  console.log('request in DB ', req.body);
     pool.connect(function(err, client, done) {
         try {
             if (err) {
@@ -36,7 +37,7 @@ router.post('/', function(req, res) {
                 res.sendStatus(500);
                 return;
             }
-            client.query('INSERT INTO favorites (gif_url, user_comment) VALUES ($1, $2) returning *;', [req.body.gif_url, req.body.user_comment],
+            client.query('INSERT INTO favorites (gif_url, user_comment) VALUES ($1, $2) returning *;', [req.body.url, req.body.comment],
                 function(err, result) {
                     if (err) {
                         console.log('Error querying the DB', err);

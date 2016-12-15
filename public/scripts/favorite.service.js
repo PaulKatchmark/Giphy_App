@@ -7,14 +7,15 @@ function FavoriteService($http) {
   };
 
   function postFavorite(gif) {
-    return $http.post('/faves', gif)
+    console.log('inside postFavorite function ', gif);
+    return $http.post('/favorite', gif)
       .then(function (response) {
         getFavorites();
       });
   }
 
   function getFavorites() {
-    return $http.get('/faves')
+    return $http.get('/favorite')
       .then(function (response) {
         console.log('GET received', response);
         favorites = response.data;
